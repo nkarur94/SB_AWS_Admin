@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.admin.DTO.AdminDataDTO;
+import com.admin.DTO.ResetPassword;
 import com.admin.DTO.ResponseDTO;
 import com.admin.service.IAdminService;
 
@@ -58,5 +60,24 @@ public class AdminController {
 		return new ResponseEntity<ResponseDTO>(response,HttpStatus.OK);
 	}
 	
+	@GetMapping("/verify/{token}")
+	public ResponseEntity<ResponseDTO> verifying(@PathVariable String token){
+		ResponseDTO response = serviceMethodUse.verifyAdmin(token);
+		return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+		
+	}
+	
+	
+	@GetMapping("/login")
+	public ResponseEntity<ResponseDTO> loginPage(@RequestParam(value="email") String eMail, @RequestParam(value="pwd") String password){
+		ResponseDTO response = serviceMethodUse.UserLogin(eMail, password);
+		return new ResponseEntity<ResponseDTO>(response,HttpStatus.OK);
+	}
+	
+	@PutMapping("/resetpwd")
+	public ResponseEntity<ResponseDTO> resetPassword(@RequestHeader String token, @RequestBody ResetPassword pwdreset){
+		ResponseDTO response = serviceMethodUse.resetAdminpassword(token, pwdreset);
+		return new ResponseEntity<ResponseDTO>(response,HttpStatus.OK);
+	}
 	
 }

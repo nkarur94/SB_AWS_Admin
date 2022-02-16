@@ -24,13 +24,9 @@ public class AdminDataDTO {
 	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message = "invalid email address")
 	public String eMail;
 	public String profilePath;
-	public boolean status;
+	
 	public String password;
 	
-	@JsonFormat(pattern="dd MM yyyy")
-	public LocalDate creatorStamp;
 	
-	@JsonFormat(pattern="dd MM yyyy")
-	public LocalDate updateStamp;
 
 }

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.admin.DTO.AdminDataDTO;
 
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name="admin_details")
 public class AdminEntity {
 	
 	@Id
@@ -40,10 +42,9 @@ public class AdminEntity {
 		this.mobileNo=dataDTo.mobileNo;
 		this.eMail=dataDTo.eMail;
 		this.profilePath=dataDTo.profilePath;
-		this.status=dataDTo.status;
+		
 		this.password=dataDTo.password;
-		this.creatorStamp=dataDTo.creatorStamp;
-		this.updateStamp=dataDTo.updateStamp;
+		
 	}
 	
 
