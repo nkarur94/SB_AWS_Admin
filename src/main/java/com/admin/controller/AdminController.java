@@ -80,4 +80,22 @@ public class AdminController {
 		return new ResponseEntity<ResponseDTO>(response,HttpStatus.OK);
 	}
 	
+	@GetMapping("/verifiedOrNot/{token}")
+	public boolean adminverified(@PathVariable String token) {
+		boolean verify = serviceMethodUse.adminVerifiedOrNot(token);
+		return verify;
+	}
+	
+	@GetMapping("/getadminid/{token}")
+	public Long adminId(@PathVariable String token) {
+		Long id = serviceMethodUse.adminIdRetriev(token);
+		return id;
+	}
+	
+	@GetMapping("/adminpresentornot/{token}")
+	public boolean adminpresent(@PathVariable String token) {
+		boolean contains = serviceMethodUse.adminPresentOrNot(token);
+		return contains;
+	}
+	
 }

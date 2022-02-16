@@ -15,4 +15,8 @@ public interface IAdminService {
 	
 	public ResponseDTO UserLogin(String eMail, String password);
 	public ResponseDTO resetAdminpassword(String token, ResetPassword pwdReset);
+	
+	public boolean adminPresentOrNot(String token);
+	public boolean adminVerifiedOrNot(String token);
+	public Long adminIdRetriev(String token);
 }

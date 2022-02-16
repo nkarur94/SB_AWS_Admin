@@ -2,6 +2,7 @@ package com.admin.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -165,5 +166,42 @@ public class AdminService implements IAdminService {
 
 		}
 	}
+
+	@Override
+	public boolean adminVerifiedOrNot(String token) {
+		// TODO Auto-generated method stub
+		Long id = tokenUtil.decodeToken(token);
+		Optional<AdminEntity> entity = repoToAdd.findById(id);
+		if(entity.get().isStatus()) {
+			
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+	@Override
+	public Long adminIdRetriev(String token) {
+		// TODO Auto-generated method stub
+		
+		long id = tokenUtil.decodeToken(token);
+		
+		return id;
+	}
+
+	@Override
+	public boolean adminPresentOrNot(String token) {
+		// TODO Auto-generated method stub
+		Long id =tokenUtil.decodeToken(token);
+		if(repoToAdd.findById(id).isPresent()) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	
 
 }
