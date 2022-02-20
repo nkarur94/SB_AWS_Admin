@@ -201,6 +201,14 @@ public class AdminService implements IAdminService {
 		}
 		
 	}
+
+	@Override
+	public void sendMail(String email, String subj, String body) {
+		// TODO Auto-generated method stub
+		
+		eMailService.send(email, subj, body);
+		
+	}
 	
 	
 

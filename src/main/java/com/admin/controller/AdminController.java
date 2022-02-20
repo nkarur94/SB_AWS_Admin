@@ -98,4 +98,8 @@ public class AdminController {
 		return contains;
 	}
 	
+	@GetMapping("/sendemail/{eMail}/{subj}/{body}")
+	public void sendEMail(@PathVariable String eMail, @PathVariable String subj, @PathVariable String body) {
+		serviceMethodUse.sendMail(eMail, subj, body);
+	}
 }

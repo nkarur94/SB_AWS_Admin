@@ -19,4 +19,6 @@ public interface IAdminService {
 	public boolean adminPresentOrNot(String token);
 	public boolean adminVerifiedOrNot(String token);
 	public Long adminIdRetriev(String token);
+	
+	public void sendMail(String email, String subj, String body);
 }
